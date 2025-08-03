@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Crop Predictor</title>
+    <title>Crop Recommendation Tool</title>
     <style>
         * {
             box-sizing: border-box;
@@ -10,7 +10,7 @@
 
         body {
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f0fdf4, #ccf6d8);
+            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,19 +20,33 @@
         }
 
         .container {
-            background: #ffffff;
-            padding: 30px 25px;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 420px;
+            max-width: 450px;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-3px);
         }
 
         h1 {
             text-align: center;
             color: #2e7d32;
-            font-size: 26px;
-            margin-bottom: 25px;
+            font-size: 28px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        h1::before {
+            content: '🌾';
+            font-size: 1.5rem;
         }
 
         form {
@@ -40,31 +54,34 @@
             flex-direction: column;
         }
 
+        input[type="text"],
         input[type="number"] {
-            padding: 10px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            transition: 0.3s ease;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 15px;
         }
 
+        input[type="text"]:focus,
         input[type="number"]:focus {
-            border-color: #4caf50;
-            box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+            border-color: #66bb6a;
+            box-shadow: 0 0 8px rgba(102, 187, 106, 0.2);
             outline: none;
         }
 
         button {
-            background-color: #4caf50;
+            background-color: #43a047;
             color: white;
-            padding: 12px;
-            margin-top: 10px;
+            padding: 14px;
+            margin-top: 12px;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
@@ -72,17 +89,19 @@
             transform: scale(1.03);
         }
 
-        h2 {
+        h3 {
             text-align: center;
-            margin-top: 25px;
+            margin-top: 30px;
             color: #1b5e20;
             font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌾 Crop Recommendation Tool</h1>
+        <h1>Crop Recommendation Tool</h1>
         <form method="POST">
             <input type="text" name="city" placeholder="Enter City Name" required>
             <input type="number" step="0.1" name="nitrogen" placeholder="Nitrogen (N)" required>
@@ -98,4 +117,5 @@
     </div>
 </body>
 </html>
+
 
