@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Predictor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4, #ccf6d8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 25px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            transition: 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+            transform: scale(1.03);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 25px;
+            color: #1b5e20;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌾 Crop Recommendation Tool</h1>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Enter City Name" required>
+            <input type="number" step="0.1" name="nitrogen" placeholder="Nitrogen (N)" required>
+            <input type="number" step="0.1" name="phosphorus" placeholder="Phosphorus (P)" required>
+            <input type="number" step="0.1" name="potassium" placeholder="Potassium (K)" required>
+            <input type="number" step="0.1" name="ph" placeholder="pH Level" required>
+            <button type="submit">Predict Crop</button>
+        </form>
+
+        {% if crop %}
+        <h3>Recommended Crop: {{ crop }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
+
